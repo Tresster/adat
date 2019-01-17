@@ -44,8 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adat.cs" />
-    <Compile Include="Beolvasás.cs" />
-    <Compile Include="Kiirás.cs" />
+    <Compile Include="Tartalom.cs" />
     <Compile Include="Patterns.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

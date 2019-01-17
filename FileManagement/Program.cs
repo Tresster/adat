@@ -4,19 +4,22 @@
 
     internal static class Program
     {
-        private static void Main()
+        public static void Main()
         {
-            Console.WriteLine("(beolvasása, kiírása)");
-            MENU:
+            Console.Write("Fájlnév: ");
+            string path = Console.ReadLine();
+
+        MENU:
+            Console.WriteLine(Environment.NewLine + "(beolvasása, tárolása)");
             Console.Write("Adatok ");
             string menu = Console.ReadLine();
-            string path = string.Empty;
 
-            if (menu == "1" || menu.ToLower().Contains("beolvas")) Adatok.Beolvas(path);
-            else if (menu == "2" || menu.ToLower().Contains("kiír")) Adatok.Kiír(path);
-            else { Console.WriteLine("Helytelen menüpont." + Environment.NewLine); goto MENU; }
+            if (menu.ToLower().Contains("beolvas")) Tartalom.Fájlból_Olvas(path);
+            else if (menu.ToLower().Contains("tárolás")) Tartalom.Fájlba_Ír(path);
+            else if (menu.ToLower() == "exit") Environment.Exit(0);
+            else Console.WriteLine("Helytelen menüpont." + Environment.NewLine);
 
-            Console.ReadLine(); //debug
+            goto MENU;
         }
     }
 }

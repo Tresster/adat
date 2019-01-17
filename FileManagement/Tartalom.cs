@@ -2,16 +2,42 @@
 {
     using System;
     using System.IO;
+    using System.Linq;
     using System.Collections.Generic;
 
-    internal static partial class Adatok
+    internal static class Tartalom
     {
-        public static void Beolvas(string Path)
+        public static LinkedList<string> Fájlból_Olvas(string Path)
+        {
+            LinkedList<string> adatok = new LinkedList<string>();
+
+            #region Adatok Beolvasása Fájlból
+            try
+            {
+                using (StreamReader reader = new StreamReader(Path))
+                {
+                    string sor;
+                    while ((sor = reader.ReadLine()) != null)
+                    {
+                        adatok.AddLast(sor);
+                    }
+                }
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("Nem létezik a fájl.");
+            }
+            #endregion
+
+            return adatok;
+        }
+
+        public static void Fájlba_Ír(string Path)
         {
             LinkedList<Adat> adatok = new LinkedList<Adat>();
             string reader = string.Empty;
 
-            #region Adatok Beolvasása
+            #region Adatok Beolvasása Console-ról
             Console.WriteLine(Environment.NewLine + "(név, születési dátum, személyi szám)");
             do
             {
