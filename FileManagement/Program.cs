@@ -46,7 +46,7 @@
 
                 foreach (string adat in kiiras.Value) //minden egyes adat a listában
                 {
-                    if (kiiras.Value.Count > kiirnivalo.Count) kiirnivalo.Add(global::FileManagement.Adat.PlaceHolder); //helykitöltő hozzáadása a listához
+                    if (kiiras.Value.Count > kiirnivalo.Count) kiirnivalo.Add(Adat.PlaceHolder); //helykitöltő hozzáadása a listához
                     kiirnivalo[index] = kiirnivalo[index].Replace(kiiras.Key.ToString(), adat); //aktuális adattal kicseréljük a helykitöltőt (it doesn't seem to work without converting the Enum type to string)
 
                     index++;
@@ -56,7 +56,7 @@
             #region Teszt
             foreach (var item in kiirnivalo)
             {
-                Console.WriteLine(item.Remove(item.Length - 1));
+                Console.WriteLine(item);
             }
             #endregion
             #endregion
